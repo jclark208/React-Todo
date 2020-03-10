@@ -21,38 +21,38 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor () {
-    //super allows React.Component to pull structure from App
+  
     super();
-    //Declare state
+    
     this.state = {tasks};
   }
 
-  //Event listener, construct object for state array
+  
   addTask = (e, task) => {
     e.preventDefault();
 
-    //Format for new task
+   
     const newTask = {
       task: task,
       id: Date.now(),
       completed: false
     };
 
-    //Add new task to state array
+    
     this.setState({
       tasks: [...this.state.tasks, newTask]
     })
   };
 
-  //Toggle true/false for task, if the taskID matches the task ID clicked
+  
   toggleComplete = taskId => {
 
     this.setState({
 
-      //Map through each object in state
+      
       tasks: this.state.tasks.map(task => {
 
-        //Toggle completed status
+       
         if(taskId === task.id) {
           return{
             ...task,
